@@ -1,0 +1,144 @@
+/*reset*/
+* {
+	padding: 0;
+	margin: 0;
+}
+/*
+:root {
+	--dotBase: 14px;
+	--activeColorBase: #9251AC;
+	--lineColor: #F6A4EB;
+}*/
+
+body {
+	background: #F6F9FC;
+}
+
+#demo-page {
+	display: flex;
+	height: 100vh;
+	text-align: center;
+}
+
+#main-container {
+	align-self: center;
+	margin: 0 auto;
+	position: relative;
+	perspective: 750px;
+}
+
+#main-container.vertical-version .controls-wrapper {
+  display: inline-block;
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: rotate(90deg) scaleY(-1) translateX(50%);
+  transform-origin: right;
+}
+
+#main-container.vertical-version #images-wrapper {
+	margin: 0 auto;
+}
+
+#images-wrapper {
+	width: 550px;
+	height: 367px;
+	margin: 0 auto 40px;
+	position: relative;
+}
+
+#images-wrapper.origin-left .image-wrapper {
+	transform-origin: right;
+}
+
+#images-wrapper.origin-right .image-wrapper {
+	transform-origin: left;
+}
+
+.image-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 3px;
+	box-shadow: 0 50px 100px rgba(50,50,93,0.05), 0 15px 35px rgba(50,50,93,0.15);
+	opacity: 0;
+}
+
+.image-wrapper.active {
+	opacity: 1;
+}
+
+.image-wrapper img {
+	width: 100%;
+	height: 100%;
+	border-radius: 3px;
+}
+
+.controls-wrapper {
+	display: inline-block;
+}
+
+.controls {
+	display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.controls.disabled .dot {
+	pointer-events: none;
+}
+
+#circular-line {
+	position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform: rotate(90deg);
+}
+
+#circular-line.flip {
+	transform: rotate(90deg) scaleY(-1);
+}
+
+#circular-line-path {
+	stroke-dasharray: 106;
+	stroke-dashoffset: 0;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke: #F6A4EB;
+}
+
+.straight-line {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	bottom: 0;
+	height: 4px;
+	background: #F6A4EB;
+	border-radius: 3px;
+	transform-origin: left;
+	transform: scaleX(0);
+}
+
+svg {
+	display: block;
+}
+
+.dot {
+	width: 14px;
+	height: 14px;
+	background: #ddd;
+	border-radius: 50%;
+	margin: 12px;
+	cursor: pointer;
+	transform: scale(.85);
+	transition: .3s all ease;
+}
+
+.dot.active {
+	background: #9251AC;
+	transform: scale(1.1);
+}
