@@ -221,7 +221,7 @@ function animateImages(oldIndex, newIndex, direction, translateVal){
 		// set the clicked image translateX position
 		.set(images[newIndex], {
 			[dynamicAnimProps.imageDirection]: translateVal,
-		}, .15)
+		})
 
 		// animate the cliced image
 		.to(images[newIndex], .3, {
